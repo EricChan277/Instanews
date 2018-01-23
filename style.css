@@ -1,0 +1,19 @@
+html {
+    background-color: black;
+}
+
+p {
+    color: #c2c2c2
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
