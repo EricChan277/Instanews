@@ -1,4 +1,4 @@
-//This is the "requires"
+//These are the "require" variable namings
  var gulp = require('gulp'),           //Always first in load order
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
@@ -9,7 +9,7 @@
     cssnano = require ('gulp-cssnano'),
     prettyError = require ('gulp-prettyerror')
 
-//sass function + minifying
+//SASS/SCSS Function + Minifying
   gulp.task("sass", function() {
     return gulp.src("./scss/style.scss")
       .pipe(sass())
@@ -25,25 +25,21 @@
       .pipe(gulp.dest("./build/css"));
   });
 
-//watch function
+//Watch Function
   gulp.task('watch', function() {
-    gulp.watch('./js/*.js', gulp.series('script')),
-    gulp.watch('./build/style.css', gulp.series('sass'))
+    gulp.watch('./js/*.js', gulp.series('script'));
+    gulp.watch('./scss/*.scss', gulp.series('sass'));
   });
 
 
-gulp.task('css', function() {
-  return gulp.src('./style.css')
-});
 
-//lint function
+//Lint Function
   gulp.task('lint', function() {
     return gulp.src('./js/*.js')
     .pipe(eslint())   //calls eslint to run
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
   })
-
 
   gulp.task('script', gulp.series('lint') ,function() {
     return gulp.src('./js/*.js')
@@ -52,16 +48,19 @@ gulp.task('css', function() {
       .pipe(gulp.dest('./build/js')); //places in ./build/js folder
   });
 
-//Browser-sync
+//Browser-Sync
   gulp.task('browser-sync', function() {
     browserSync.init( {
       server: {
         baseDir: "./"
       }
-    })
-  })
+    });
+    gulp.watch(["./build/js/*.js", "*.html", "./build/css/style.css"]).on('change', browserSync.reload); //watches for items in the array to change, then will reload browser
+  });
 
-gulp.watch("./build/js/*.js").on('change', browserSync.reload);
-gulp.watch("./style.css").on('change', browserSync.reload);
 
-gulp.task('default', gulp.parallel('watch', 'browser-sync')); //runs script in parallel
+
+
+//Gulp Default
+
+  gulp.task('default', gulp.parallel('watch', 'browser-sync')); //runs script in parallel
