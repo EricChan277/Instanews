@@ -1,4 +1,5 @@
 //These are the "require" variable namings
+
  var gulp = require('gulp'),           //Always first in load order
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
@@ -7,7 +8,7 @@
     sass = require ('gulp-sass'),
     autoprefixer = require ('gulp-autoprefixer'),
     cssnano = require ('gulp-cssnano'),
-    prettyError = require ('gulp-prettyerror')
+    prettyError = require ('gulp-prettyerror');
 
 //SASS/SCSS Function + Minifying
   gulp.task("sass", function() {
@@ -25,7 +26,9 @@
       .pipe(gulp.dest("./build/css"));
   });
 
+
 //Watch Function
+
   gulp.task('watch', function() {
     gulp.watch('./js/*.js', gulp.series('script'));
     gulp.watch('./scss/*.scss', gulp.series('sass'));
@@ -34,21 +37,26 @@
 
 
 //Lint Function
+
   gulp.task('lint', function() {
     return gulp.src('./js/*.js')
     .pipe(eslint())   //calls eslint to run
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
-  })
+  });
 
-  gulp.task('script', gulp.series('lint') ,function() {
+
+  //Script Function
+  gulp.task('script', gulp.series('lint', function scripts() {
     return gulp.src('./js/*.js')
       .pipe(uglify())   //calls uglify to run
       .pipe(rename({extname: '.min.js'})) //renames extension to ".min.js" 
-      .pipe(gulp.dest('./build/js')); //places in ./build/js folder
-  });
+      // .pipe(gulp.dest('./build/js')); //places in ./build/js folder
+      .pipe(gulp.dest("./build/js"));
+  }));
 
 //Browser-Sync
+
   gulp.task('browser-sync', function() {
     browserSync.init( {
       server: {
