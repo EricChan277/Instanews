@@ -1,0 +1,26 @@
+@media screen and (min-width: 600px) {
+
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .footer-txt {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    
+    .container {
+        flex-direction: row;
+        flex-wrap: none;
+    }
+
+    .logo {
+        width: 25%;
+    }
+
+}
