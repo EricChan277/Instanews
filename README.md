@@ -20,4 +20,11 @@ designed webpage.
         
         Documentation: http://sass-lang.com/documentation/
         
-SASS allows us to work on our css in chunks by utilizing "partials" (denoted by a preceeding _ character for the scss files). This allows us to organize our CSS code so that is easy to read, anaylze and debug if there were any issues.
+SASS allows us to work on our css in chunks by utilizing "partials" (denoted by a preceeding _ character for the scss files). This allows us to organize our CSS code so that is easy to read, analyze and debug if there were any issues.
+
+
+        GULP
+
+        Link to documentation: https://gulpjs.com/
+
+GULP is a node.js plugin which allows us to call functions that allow us to debug our programs in real time via BrowserSync, and also minifies our css and jquery.

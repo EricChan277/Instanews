@@ -5,3 +5,53 @@
     margin: 15px 0px;
     flex-direction: column;
 }
+
+.text {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    padding: .5rem;
+}
+
+.artList {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.nyt-li {
+    height: 25vw;
+    width: 25%;
+    flex: 1 1 100%;
+    background-size: cover;
+    position: relative;
+    @include tablet {
+            flex: 1 1 50%;
+        }
+}
+
+.loader {
+    position: relative;
+    top: 50%;
+    left: 43%;
+    height: 200px;
+    width: 200px;
+}
+
+
+@media screen and (min-width: 1000px) {
+    
+    .container {
+        flex-direction: row;
+        flex-wrap: none;
+    }
+
+    .logo {
+        width: 25%;
+    }
+
+    .nyt-li {
+        flex: 1 1 25%;
+    }
+
+
+}
