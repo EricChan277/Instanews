@@ -19,14 +19,18 @@
 }
 
 .nyt-li {
-    height: 25vw;
-    width: 25%;
+    height: 50vh;
+    width: 100%;
     flex: 1 1 100%;
     background-size: cover;
     position: relative;
     @include tablet {
-            flex: 1 1 50%;
-        }
+        flex: 1 1 50%;
+    }
+        
+    @include desktop {
+        flex: 1 1 25%;
+    }
 }
 
 .loader {
@@ -38,20 +42,17 @@
 }
 
 
-@media screen and (min-width: 1000px) {
+// @media screen and (min-width: 1000px) {
     
-    .container {
-        flex-direction: row;
-        flex-wrap: none;
-    }
-
-    .logo {
-        width: 25%;
-    }
-
-    .nyt-li {
-        flex: 1 1 25%;
-    }
+//     .container {
+//         flex-direction: row;
+//         flex-wrap: none;
+//     }
 
 
-}
+//     .nyt-li {
+//         flex: 1 1 25%;
+//     }
+
+
+// }

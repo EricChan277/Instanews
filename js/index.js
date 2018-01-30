@@ -1,6 +1,3 @@
-// import { filterResult } from "gulp-eslint/util";
-
-// Built by LucyBot. www.lucybot.com
 $(document).ready(function () {
   $('.loader').hide();
 
@@ -9,34 +6,27 @@ $(document).ready(function () {
 
     $('.loader').show();
 
-    var url = "https://api.nytimes.com/svc/topstories/v2/";
+    var url = 'https://api.nytimes.com/svc/topstories/v2/';
     var value = $(this).val();
     url += value + ('.json');
     url += '?' + $.param({
-      'api-key': "a0f2fb5adadf4660ac0eb18fbb12876e"
+      'api-key': 'a0f2fb5adadf4660ac0eb18fbb12876e'
     });
 
     $('.artList').empty(),
-
-      // console.log(url);
-
 
       $.ajax({
         url: url,
         method: 'GET',
         datatype: JSON
       }).done(function (data) {
-        // console.log(data.results);
 
 
         var filtered = data.results.filter(function (el) {
           return el.multimedia.length > 0;
         }).slice(0, 12)
-        // console.log(filtered);
 
         $.each(filtered, function (index, value) {
-          // console.log(value);
-
 
           var articlePic = '';
           var articleLink= value.url;
@@ -51,10 +41,9 @@ $(document).ready(function () {
           
           $('.loader').hide();
           $('.artList').append(articlePic);
+          $('.container').addClass('') 
 
         })
-
-
 
       }).fail(function (err) {
         throw err;

@@ -9,4 +9,12 @@ p {
     justify-content: center;
     align-items: center;
     margin: 15px 0px;
+    @include desktop {
+        width: 50%;
+    }
+}
+
+.logo-pic {
+    width: 20%;
+    height: auto;
 }
