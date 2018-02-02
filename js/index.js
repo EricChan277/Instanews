@@ -1,7 +1,7 @@
-$(document).ready(function () {
+$(document).ready(function(){
   $('.loader').hide();
 
-  $('select').on('change', function (event) {
+  $('select').on('change', function(event) {
     event.preventDefault();
 
     $('.loader').show();
@@ -19,14 +19,14 @@ $(document).ready(function () {
         url: url,
         method: 'GET',
         datatype: JSON
-      }).done(function (data) {
+      }).done(function(data) {
 
 
-        var filtered = data.results.filter(function (el) {
+        var filtered = data.results.filter(function(el) {
           return el.multimedia.length > 0;
         }).slice(0, 12)
 
-        $.each(filtered, function (index, value) {
+        $.each(filtered, function(index, value) {
 
           var articlePic = '';
           var articleLink= value.url;
@@ -45,7 +45,7 @@ $(document).ready(function () {
 
         })
 
-      }).fail(function (err) {
+      }).fail(function(err) {
         throw err;
       });
   });
