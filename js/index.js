@@ -40,8 +40,10 @@ $(document).ready(function(){
           articlePic += '</li>';
           
           $('.loader').hide();
-          $('.artList').append(articlePic);
-          $('.container').addClass('') 
+          $('.artList').append(articlePic);     
+          $('.container').addClass('article-true');
+          $('.container').removeClass('container'); 
+
 
         })
 
